@@ -1,0 +1,55 @@
+<!DOCTYPE html>  
+<html lang="it">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>Loop - Negozio di Manga e Musica</title>  
+    <link rel="stylesheet" href="styles.css">  
+</head>  
+<body>  
+    <header>  
+        <h1>Loop</h1>  
+        <nav>  
+            <ul>  
+                <li><a href="#home">Home</a></li>  
+                <li><a href="#prodotti">Prodotti</a>  
+                    <ul class="dropdown">  
+                        <li><a href="#cd">CD</a></li>  
+                        <li><a href="#vinili">Vinili</a></li>  
+                        <li><a href="#libri">Libri</a></li>  
+                        <li><a href="#manga">Manga</a></li>  
+                    </ul>  
+                </li>  
+            </ul>  
+        </nav>  
+    </header>  
+
+    <main id="home">  
+        <h2>Benvenuti nel nostro negozio</h2>  
+        <p>Scopri la nostra selezione di manga, vinili, CD e libri.</p>  
+    </main>  
+
+    <section id="prodotti">  
+        <h2>Prodotti</h2>  
+
+        <h3 id="cd">CD</h3>  
+        <p>Esplora la nostra collezione di CD.</p>  
+
+        <h3 id="vinili">Vinili</h3>  
+        <p>Scopri i nostri vinili rari e classici.</p>  
+
+        <h3 id="libri">Libri</h3>  
+        <p>Cerca nel nostro assortimento di libri.</p>  
+
+        <h3 id="manga">Manga</h3>  
+        <p>Esplora la nostra vasta selezione di manga.</p>  
+    </section>  
+
+    <footer>  
+        <div class="cart">  
+            <h2>Carrello</h2>  
+            <p>Gli articoli aggiunti al carrello saranno mostrati qui.</p>  
+        </div>  
+    </footer>  
+</body>  
+</html>  
