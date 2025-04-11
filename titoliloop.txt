@@ -1,0 +1,22 @@
+loop/  
+│ 
+├── accesso.html            # accesso
+├── registrazione.html      # regiazione
+├── dashboard.html          # pannellodicontrollo
+├── logout.html             # logout
+
+
+├── home.html               # Homepage del tuo sito  
+├── prodotti.html           # Pagina dei prodotti 
+├── inthevinyl.html         # Pagina dei prodotti vinile
+├── inthecd.html            # Pagina dei prodotti cd
+├── inthemanga.html         # Pagina dei prodotti manga 
+├── intheaccess.html        # Pagina dei prodotti accessori anime 
+├── inthebook.html          # Pagine dei prodotti libru
+
+├── loop.css                # File CSS per lo stile del sito  
+├── immagini/               # Cartella per  immagini  
+└── script.js               #file per codice JavaScript  
+├── dashboard.html          # pannellodicontrollo
+├── logout.html             # logout
+├── titoliloop.txt          # titoli

@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>LOOP</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Georgia', serif;
+      background: linear-gradient(to bottom, #e3f4f4, #fef9f3);
+      color: #333;
+      overflow-x: hidden;
+    }
+
+    header {
+      background: #fff6ea;
+      padding: 20px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    h1 {
+      font-size: 3em;
+      color: #7f5a58;
+      margin: 0;
+      animation: floatIn 2s ease-out;
+    }
+
+    nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: #5a3e36;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #d35400;
+    }
+
+    .auth-buttons {
+      display: flex;
+      gap: 10px;
+    }
+
+    .auth-buttons button {
+      background: #f9d9c1;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .auth-buttons button:hover {
+      background: #f6b68d;
+    }
+
+    .popup {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0.8);
+      background: #fffefb;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      z-index: 100;
+      display: none;
+      animation: popupFade 0.4s ease forwards;
+    }
+
+    .popup.active {
+      display: block;
+    }
+
+    .popup h2 {
+      margin-top: 0;
+    }
+
+    .popup input {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0 20px;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+    }
+
+    .popup button {
+      background: #7f5a58;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 15px;
+      cursor: pointer;
+    }
+
+    .popup button:hover {
+      background: #a5716f;
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.5);
+      display: none;
+      z-index: 90;
+    }
+
+    .overlay.active {
+      display: block;
+    }.dashboard-link {
+  background: #f9d9c1;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-weight: bold;
+  color: #5a3e36;
+  text-decoration: none;
+  transition: background 0.3s, transform 0.3s;
+  display: inline-block;
+  margin-left: 10px;
+  animation: fadeIn 1s ease;
+}
+
+.dashboard-link:hover {
+  background: #f6b68d;
+  transform: scale(1.05);
+}
+	.dashboard-link {
+  background: #f9d9c1;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-weight: bold;
+  color: #5a3e36;
+  text-decoration: none;
+  transition: background 0.3s, transform 0.3s;
+  display: inline-block;
+  margin-left: 10px;
+  animation: fadeIn 1s ease;
+}
+
+.dashboard-link:hover {
+  background: #f6b68d;
+  transform: scale(1.05);
+}
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes floatIn {
+      0% { transform: translateY(-20px); opacity: 0; }
+      100% { transform: translateY(0); opacity: 1; }
+    }
+
+    @keyframes slideUp {
+      from { transform: translateY(50px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    @keyframes popupFade {
+      from { opacity: 0; transform: translate(-50%, -50%) scale(0.6); }
+      to { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+    }
+
+    .hero {
+      padding: 60px 20px;
+      text-align: center;
+      background-image: url('home.jpg');
+      background-size: cover;
+      background-position: center;
+      color: #fff;
+      text-shadow: 1px 1px 3px #000;
+      animation: fadeIn 2s ease;
+    }
+
+    .hero h2 {
+      font-size: 2em;
+    }
+
+    .categories {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      padding: 40px;
+    }
+
+    .category {
+      background: #fff;
+      border-radius: 15px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+      animation: slideUp 1.2s ease;
+    }
+
+    .category:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+
+    .category img {
+      width: 100px;
+      margin-bottom: 10px;
+    }
+
+    footer {
+      background: #fff6ea;
+      padding: 20px;
+      text-align: center;
+      font-size: 0.9em;
+    }
+	
+	  color: #5a3e36;
+  text-decoration: none;
+  transition: background 0.3s, transform 0.3s;
+  display: inline-block;
+  margin-left: 10px;
+  animation: fadeIn 1s ease;
+}
+
+/* Totoro Animato */
+.totoro-container {
+  position: relative;
+  height: 300px;
+  overflow: hidden;
+  margin-top: 50px;
+  background: linear-gradient(to top, #c2e9fb, #fef9f3);
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.totoro {
+  position: absolute;
+  width: 160px;
+  height: 220px;
+  background-color: #6e7c7c;
+  border-radius: 80px 80px 70px 70px;
+  animation: move 12s ease-in-out infinite;
+}
+
+.totoro .belly {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 120px;
+  background-color: #fefefe;
+  border-radius: 50% 50% 45% 45%;
+}
+
+.totoro .ear {
+  position: absolute;
+  width: 30px;
+  height: 70px;
+  background-color: #6e7c7c;
+  border-radius: 50% 50% 0 0;
+  top: -40px;
+}
+
+.totoro .ear.left { left: 20px; transform: rotate(-10deg); }
+.totoro .ear.right { right: 20px; transform: rotate(10deg); }
+
+.totoro .eye {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  background-color: white;
+  border-radius: 50%;
+  top: 50px;
+}
+
+.totoro .eye.left { left: 35px; }
+.totoro .eye.right { right: 35px; }
+
+.totoro .pupil {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background-color: black;
+  border-radius: 50%;
+  top: 8px;
+  left: 8px;
+}
+
+.totoro .nose {
+  position: absolute;
+  width: 12px;
+  height: 8px;
+  background-color: black;
+  border-radius: 6px;
+  top: 75px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.totoro .v-mark {
+  position: absolute;
+  width: 20px;
+  height: 12px;
+  border-bottom: 3px solid #6e7c7c;
+  border-left: 3px solid transparent;
+  border-right: 3px solid transparent;
+  transform: rotate(180deg);
+}
+
+.totoro .v1 { top: 130px; left: 50px; }
+.totoro .v2 { top: 135px; left: 70px; }
+.totoro .v3 { top: 130px; right: 50px; }
+
+@keyframes move {
+  0% { left: -200px; }
+  50% { left: calc(100% - 160px); }
+  100% { left: -200px; }
+}
+
+  </style>
+</head>
+<body>
+
+  <div class="overlay" id="overlay" onclick="closePopup()"></div>
+
+  <div class="popup" id="loginPopup">
+    <h2>Login</h2>
+    <input type="text" placeholder="Email">
+    <input type="password" placeholder="Password">
+    <button onclick="closePopup()">Accedi</button>
+  </div>
+
+  <div class="popup" id="registerPopup">
+    <h2>Registrati</h2>
+    <input type="text" placeholder="Nome">
+    <input type="email" placeholder="Email">
+    <input type="password" placeholder="Password">
+    <button onclick="closePopup()">Crea Account</button>
+	
+  </div>
+
+  <header>
+    <h1>Loop</h1>
+    <nav>
+      <a href="home.html">Home</a>
+      <a href="#">Prodotti</a>
+      <a href="chisiamo.html">Chi siamo</a>
+      <a href="#">Contatti</a>
+    </nav>
+    <div class="auth-buttons">
+      <button onclick="showPopup('loginPopup')">Login</button>
+      <button onclick="showPopup('registerPopup')">Registrati</button>
+    </div>
+  </header>
+
+  <section class="hero">
+    <h2>Benvenuto nel mondo magico di Loop</h2>
+    <p>Scopri CD, vinili, manga e prodotti ispirati allo stile Ghibli</p>
+  </section>
+
+  <section class="categories">
+    <div class="category">
+      <img src="cd.webp" alt="CD Musicali">  
+      <h3>CD Musicali</h3>
+    </div>
+    <div class="category">
+      <img src="vinili.webp" alt="Vinili">
+      <h3>Vinili</h3>
+    </div>
+    <div class="category">
+      <img src="libro.webp" alt="Libri">
+      <h3>Libri</h3>
+    </div>
+	  <div class="category">
+      <img src="manga.jpg" alt="Manga">
+      <h3>Manga </h3>
+    </div>
+    <div class="category">
+      <img src="manga.jpg" alt="Prodotti Manga">
+      <h3>Merchandise</h3>
+    </div>
+  </section>
+
+  <section id="contatti">
+    <h2>Contattaci</h2>
+    <p>Scrivici a: <a href="mailto:info@loop.com">info@loop.com</a></p>
+	<a href="Dashboard.html" class="dashboard-link">Dashboard</a>
+  </section>
+
+<div class="totoro-container">
+  <div class="totoro">
+    <div class="ear left"></div>
+    <div class="ear right"></div>
+    <div class="eye left"><div class="pupil"></div></div>
+    <div class="eye right"><div class="pupil"></div></div>
+    <div class="nose"></div>
+    <div class="belly"></div>
+    <div class="v-mark v1"></div>
+    <div class="v-mark v2"></div>
+    <div class="v-mark v3"></div>
+  </div>
+</div>
+
+
+<section id="contatti">
+  <h2>Contattaci</h2>
+  <p>Per ulteriori informazioni, scrivici a: <a href="mailto:info@loop.com">info@loop.com</a></p>
+</section>
+    
+  <footer>
+    <p>&copy; 2025 LOOP. <a href="titoliloop.txt">titoliloop</a></p>
+  </footer>
+
+  <script>
+    function showPopup(id) {
+      document.getElementById('overlay').classList.add('active');
+      document.getElementById(id).classList.add('active');
+    }
+
+    function closePopup() {
+      document.getElementById('overlay').classList.remove('active');
+      document.getElementById('loginPopup').classList.remove('active');
+      document.getElementById('registerPopup').classList.remove('active');
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Logout - Loop</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Georgia', serif;
+      background: linear-gradient(to bottom, #fef9f3, #e3f4f4);
+      color: #333;
+      overflow-x: hidden;
+      text-align: center;
+    }
+
+    header {
+      background: #fff6ea;
+      padding: 20px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5em;
+      color: #7f5a58;
+      animation: floatIn 2s ease-out;
+    }
+
+    .message-box {
+      margin-top: 100px;
+      padding: 40px;
+      background: #ffffffcc;
+      display: inline-block;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      animation: slideUp 1.2s ease;
+    }
+
+    .message-box h2 {
+      color: #5a3e36;
+    }
+
+    .message-box p {
+      font-size: 1.2em;
+      margin-bottom: 30px;
+    }
+
+    .message-box a {
+      text-decoration: none;
+      background: #f9d9c1;
+      padding: 10px 20px;
+      border-radius: 20px;
+      font-weight: bold;
+      color: #5a3e36;
+      transition: background 0.3s, transform 0.3s;
+    }
+
+    .message-box a:hover {
+      background: #f6b68d;
+      transform: scale(1.05);
+    }
+
+    footer {
+      background: #fff6ea;
+      padding: 20px;
+      text-align: center;
+      font-size: 0.9em;
+      margin-top: 100px;
+    }
+
+    @keyframes floatIn {
+      0% { transform: translateY(-20px); opacity: 0; }
+      100% { transform: translateY(0); opacity: 1; }
+    }
+
+    @keyframes slideUp {
+      from { transform: translateY(50px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Loop</h1>
+  </header>
+
+  <div class="message-box">
+    <h2>Sei stato disconnesso</h2>
+    <p>Hai effettuato il logout correttamente.</p>
+    <a href="home.html">Torna alla Home</a>
+  </div>
+
+    <footer>
+    <p>&copy; 2025 LOOP. <a href="titoliloop.txt">titoliloop</a></p>
+  </footer>
+
+</body>
+</html>
