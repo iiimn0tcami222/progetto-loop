@@ -1,0 +1,96 @@
+/* Totoro Animato */
+.totoro-container {
+  position: relative;
+  height: 300px;
+  overflow: hidden;
+  margin-top: 50px;
+  background: linear-gradient(to top, #c2e9fb, #fef9f3);
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.totoro {
+  position: absolute;
+  width: 160px;
+  height: 220px;
+  background-color: #6e7c7c;
+  border-radius: 80px 80px 70px 70px;
+  animation: move 12s ease-in-out infinite;
+}
+
+.totoro .belly {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 120px;
+  background-color: #fefefe;
+  border-radius: 50% 50% 45% 45%;
+}
+
+.totoro .ear {
+  position: absolute;
+  width: 30px;
+  height: 70px;
+  background-color: #6e7c7c;
+  border-radius: 50% 50% 0 0;
+  top: -40px;
+}
+
+.totoro .ear.left { left: 20px; transform: rotate(-10deg); }
+.totoro .ear.right { right: 20px; transform: rotate(10deg); }
+
+.totoro .eye {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  background-color: white;
+  border-radius: 50%;
+  top: 50px;
+}
+
+.totoro .eye.left { left: 35px; }
+.totoro .eye.right { right: 35px; }
+
+.totoro .pupil {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background-color: black;
+  border-radius: 50%;
+  top: 8px;
+  left: 8px;
+}
+
+.totoro .nose {
+  position: absolute;
+  width: 12px;
+  height: 8px;
+  background-color: black;
+  border-radius: 6px;
+  top: 75px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.totoro .v-mark {
+  position: absolute;
+  width: 20px;
+  height: 12px;
+  border-bottom: 3px solid #6e7c7c;
+  border-left: 3px solid transparent;
+  border-right: 3px solid transparent;
+  transform: rotate(180deg);
+}
+
+.totoro .v1 { top: 130px; left: 50px; }
+.totoro .v2 { top: 135px; left: 70px; }
+.totoro .v3 { top: 130px; right: 50px; }
+
+@keyframes move {
+  0% { left: -200px; }
+  50% { left: calc(100% - 160px); }
+  100% { left: -200px; }
+}
